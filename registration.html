@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>НАЧАЛО РАБОТЫ С BRACKETS</title>
+        <meta name="description" content="Начало работы с запросами">
+    </head>
+    <body>
+
+        <h1>НАЧАЛО РАБОТЫ С BRACKETS</h1>
+        <form>
+            Login:<input id="UserLogin"><br/>
+            Password:<input id="UserPassword"><br/>
+            E-mail:<input id="UserMail"><br/>
+            Full name:<input id="UserName"><br/>
+            <input type="button" id="btn", value="Зарегестрироваться">
+            <script language="JavaScript">
+                btn.addEventListener("click", btnClick);
+                function btnClick() {
+                    let login = document.getElementById("UserLogin").value;
+                    let password = document.getElementById("UserPassword").value;
+                    let mail = document.getElementById("UserMail").value;
+                    let FIO = document.getElementById("UserName").value;
+                    user = {
+                        UserLogin: login,
+                        UserPassword: password,
+                        UserMail: mail,
+                        UserName: FIO
+                    }
+                    url ="http://DESKTOP-BL7CIDB.Dlink:5050/send"
+                    fetch(url ,{
+                    method: "POST",
+                    headers:{"content-type":"application/json; charset=utf-8"}, 
+                    body: JSON.stringify(user)
+                });
+                }
+            </script>
+        </form>
+    </body>
+</html>
