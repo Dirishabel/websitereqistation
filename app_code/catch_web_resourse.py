@@ -6,4 +6,4 @@ class Catch():
         pwd = req.media.get("UserPassword")
         mail = req.media.get("UserMail")
         name = req.media.get("UserName")
-                
+        resp.body = json.dumps("hello "+name)
