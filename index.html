@@ -34,7 +34,8 @@
                     method: "POST",
                     headers:{"content-type":"application/json; charset=utf-8"}, 
                     body: JSON.stringify(user)
-                });
+                }).then(response => response.json())
+                .then(commits => alert(commits))
                 }
             </script>
         </form>
